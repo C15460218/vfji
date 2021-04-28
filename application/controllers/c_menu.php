@@ -15,7 +15,7 @@ class C_menu extends CI_controller
 
 		//obtener datos del profesor que registra
 		$this->load->model('m_datos_siitec');
-		$this->session->set_userdata('ID', '49');
+		$this->session->set_userdata('ID', '88');
 		$id = $this->session->userdata('ID');
 		$res = $this->m_datos_siitec->datos_profesores_inicio($id);
 

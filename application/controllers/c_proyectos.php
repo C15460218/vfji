@@ -277,6 +277,7 @@ class C_proyectos extends CI_controller
 
 		$evento = $this->session->userdata('id_evento');
 		$data['proyectos']=$this->m_proyectos->obtener_lista_proyectos($evento);
+		$data['datos']=$this->m_proyectos->filtro_proyectos($evento);
 		$this->load->vars($data);
 		$this->load->view('layout/header');
 		$this->load->view('proyectos/vL_Proyectos');

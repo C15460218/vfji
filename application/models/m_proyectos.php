@@ -388,6 +388,20 @@ class M_proyectos extends CI_Model
 
 	}
 
+	public function filtro_proyectos($evento)
+	{
+		$cadena = "SELECT DISTINCT u.departamento_us FROM proyecto AS p
+					JOIN det_usuario_proyecto AS det ON p.id_proy = det.id_proy_fk 
+					JOIN rol AS r ON det.id_rol_fk = r.id_rol
+					JOIN usuario AS u ON det.id_us_fk = u.id_us
+					WHERE p.id_ev_fk = '$evento' AND det.id_rol_fk='1'
+					ORDER BY fecha_proy ASC";
+
+		$query = $this->vfji->query($cadena);
+		return $query->result();
+	}
+
+
 	public function obtener_id_evento()
 	{
 		$fecha=date("Y-m-d");

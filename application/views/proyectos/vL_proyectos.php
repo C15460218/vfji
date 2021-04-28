@@ -6,13 +6,13 @@
 			    <select class="form-control" id="filtro_depa">
 			    	<option value="1">TODOS</option>
 			    	<?php $valor=""; ?>
-			    	<?php foreach ($proyectos as $proyecto): ?>
-		    			<?php if($valor==$proyecto->departamento_us){ ?>
+			    	<?php foreach ($datos as $dato): ?>
+		    			<?php if($valor==$dato->departamento_us){ ?>
 		    					<?php continue; ?>
 		    			<?php }else{ ?>	
-	    					<option value="<?php echo str_replace(' ', '', $proyecto->departamento_us); ?>">
-	    						<?php echo $proyecto->departamento_us; ?>
-	    						<?php $valor=$proyecto->departamento_us;?>
+	    					<option value="<?php echo str_replace(' ', '', $dato->departamento_us); ?>">
+	    						<?php echo $dato->departamento_us; ?>
+	    						<?php $valor=$dato->departamento_us;?>
 	    					</option>
 		    			<?php } ?>
 			    	<?php endforeach ?>
