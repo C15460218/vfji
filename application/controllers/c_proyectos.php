@@ -283,6 +283,8 @@ class C_proyectos extends CI_controller
 		$this->load->view('proyectos/vL_Proyectos');
 	}
 
+	//ruta - lproy/detalles
+
 	
 }
 

@@ -47,6 +47,7 @@
 				    		<?php endforeach; ?>
 
 				    	</p>
+						<a href="#">Detalles</a>
 				    	<hr>
 				  		<h5>Responsable Administrativo</h5>
 				    	<p class="card-text">
