@@ -1,0 +1,29 @@
+.s2-breadcrumbs {
+    padding: 0px;
+    font-size: 10px;
+    > li {
+        display: inline-block;
+        &::after {
+            content: "|";
+            display: inline;
+        }
+        > a {
+            color: black;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            &:hover {
+                color: var(--itcolima-yellow);
+            }
+        }
+        &:last-child {
+            &::after {
+                content: "";
+            }
+            > a {
+                background-color: #f1f1f1;
+            }
+        }
+    }
+}

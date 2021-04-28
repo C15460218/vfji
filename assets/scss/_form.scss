@@ -1,0 +1,53 @@
+.s2-form {
+    box-sizing: border-box;
+    padding: 16px;
+    border: 1px solid var(--control-border-color);
+    border-radius: 8px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+%form-control {
+    box-sizing: border-box;;
+    display: block;
+    border: 1px solid var(--control-border-color);
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 200ms, box-shadow 600ms;
+    &:focus {
+        border-color: var(--control-line-color-focus);
+        box-shadow: 0px 1px 8px rgba(0,0,0,0.2) inset;
+        outline: none;
+    }
+}
+.s2-input {
+    margin: 8px 8px 16px 8px;
+    label {
+        display: block;
+        font-size: 16px;
+    }
+    input {
+        &[type=text],
+        &[type=tel],
+        &[type=date],
+        &[type=time],
+        &[type=email],
+        &[type=password] {
+            @extend %form-control;
+        }
+    }
+    select {
+        @extend %form-control;
+        &:focus {
+            box-shadow: 0px 1px 8px rgba(0,0,0,0.2);
+        }
+    }
+}
+label.s2-required {
+    &::after {
+        content: "*";
+        display: inline;
+        color: red;
+    }
+}

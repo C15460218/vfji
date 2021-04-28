@@ -1,0 +1,19 @@
+.reveal-container {
+    overflow: hidden;
+    position: relative;
+}
+.reveal-spot {
+    --spot-blur: 48px;
+    box-sizing: border-box;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(white, 0.15);
+    filter: blur(40px);
+    filter: blur(var(--spot-blur));
+    transition: opacity 200ms;
+}

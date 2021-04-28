@@ -1,0 +1,24 @@
+.text-bold { font-weight: bold; }
+.text-normal { font-weight: normal; }
+.text-light { font-weight: lighter; }
+
+.align-start { text-align: left; }
+.align-center { text-align: center; }
+.align-end { text-align: right; }
+.align-justify { text-align: justify; }
+%align-left { text-align:left; }
+%align-right { text-align:right; }
+@supports not(text-align:start) {
+    .align-start {
+        @extend %align-left;
+        &[dir=rtl] { @extend %align-right; }
+    }
+    .align-end {
+        @extend %align-right;
+        &[dir=ltr] { @extend %align-left; }
+    }
+    [dir=rtl] {
+        .align-start { @extend %align-right; }
+        .align-end { @extend %align-left; }
+    }
+}
