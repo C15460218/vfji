@@ -42,6 +42,12 @@
                     <p>Estudiantes</p>
                 </a>
             </li>
+            <li>
+                <a href="<?php echo base_url()?>dproy" class='reveal-container anim-reposition' aria-role="button" class='reveal-container anim-reposition'>
+                    <h4>Detalles de Proyectos</h4>
+                    <p>Detalles Generales</p>
+                </a>
+            </li>
             <!--
             <li>
                 <a href="#" class='reveal-container anim-reposition'>

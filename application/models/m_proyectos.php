@@ -388,6 +388,21 @@ class M_proyectos extends CI_Model
 
 	}
 
+	public function obtener_ultimo_proyecto($evento)
+	{
+
+		$cadena = "SELECT p.*, det.*, u.*,r.* FROM proyecto AS p
+					JOIN det_usuario_proyecto AS det ON p.id_proy = det.id_proy_fk 
+					JOIN rol AS r ON det.id_rol_fk = r.id_rol
+					JOIN usuario AS u ON det.id_us_fk = u.id_us
+					WHERE p.id_ev_fk = '$evento' AND det.id_rol_fk='1' AND p.id_proy='1'
+					ORDER BY fecha_proy ASC";
+
+		$query = $this->vfji->query($cadena);
+		return $query->result();
+
+	}
+
 	public function filtro_proyectos($evento)
 	{
 		$cadena = "SELECT DISTINCT u.departamento_us FROM proyecto AS p
@@ -414,6 +429,44 @@ class M_proyectos extends CI_Model
 			$this->session->set_userdata('id_evento', $row->id_ev);
 
 		}
+	}
+
+	public function obtener_cantidad_estudiantes($evento)
+	{
+		$cadena = "SELECT  u.departamento_us,COUNT(u.departamento_us) AS departamento FROM proyecto AS p
+					JOIN det_usuario_proyecto AS det ON p.id_proy = det.id_proy_fk 
+					JOIN rol AS r ON det.id_rol_fk = r.id_rol
+					JOIN usuario AS u ON det.id_us_fk = u.id_us
+					WHERE p.id_ev_fk = '$evento' AND det.id_rol_fk='3'
+					GROUP BY u.departamento_us";
+
+		$query = $this->vfji->query($cadena);
+		return $query->result();
+	}
+
+	public function obtener_cantidad_profesores($evento)
+	{
+		$cadena = "SELECT  u.departamento_us,COUNT(u.departamento_us) AS departamento FROM proyecto AS p
+					JOIN det_usuario_proyecto AS det ON p.id_proy = det.id_proy_fk 
+					JOIN rol AS r ON det.id_rol_fk = r.id_rol
+					JOIN usuario AS u ON det.id_us_fk = u.id_us
+					WHERE p.id_ev_fk = '$evento' AND det.id_rol_fk!='3'
+					GROUP BY u.departamento_us";
+
+		$query = $this->vfji->query($cadena);
+		return $query->result();
+	}
+
+	public function obtener_datos_estudiantes($evento)
+	{
+		$cadena = "SELECT  u.departamento_us, u.nombre_us,u.apellido1_us,u.apellido2_us,u.id_us FROM proyecto AS p
+					JOIN det_usuario_proyecto AS det ON p.id_proy = det.id_proy_fk 
+					JOIN rol AS r ON det.id_rol_fk = r.id_rol
+					JOIN usuario AS u ON det.id_us_fk = u.id_us
+					WHERE p.id_ev_fk = '$evento' AND det.id_rol_fk='3'";
+
+		$query = $this->vfji->query($cadena);
+		return $query->result();
 	}
 
 

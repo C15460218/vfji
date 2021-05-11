@@ -1,3 +1,9 @@
+<div style="margin-top: 10px;" class="s2-container">
+
+   <a class="bc" href="<?php echo base_url();?>"> Menu - VFJI |</a>
+   Lista Proyectos
+   
+</div>
 <div class="s2-container">
 	<div class="row">
 		<div class="col-12" style="margin-top: 10px;">

@@ -68,6 +68,8 @@ $route['eproy/(:any)']='c_proyectos/eliminar_proyecto/$i';
 //lista de proyectos para alumnos
 $route['lproy']='c_proyectos/lista_proyectos';
 
+//Detalles
+$route['dproy']='c_proyectos/detalle_proyectos';
 
 //ajax controllers
 $route['oproya'] = 'c_proyectos/obtener_proyectos_ajax';

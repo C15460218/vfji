@@ -283,7 +283,19 @@ class C_proyectos extends CI_controller
 		$this->load->view('proyectos/vL_Proyectos');
 	}
 
-	//ruta - lproy/detalles
+	//ruta - dproy
+	public function detalle_proyectos()
+	{
+		$evento = $this->session->userdata('id_evento');
+		$data['proyectos']=$this->m_proyectos->obtener_lista_proyectos($evento);
+		$data['estudiantes']=$this->m_proyectos->obtener_cantidad_estudiantes($evento);
+		$data['profesores']=$this->m_proyectos->obtener_cantidad_profesores($evento);
+		$data['dEstudiantes']=$this->m_proyectos->obtener_datos_estudiantes($evento);
+		$this->load->vars($data);
+		$this->load->view('layout/header');
+		$this->load->view('proyectos/vD_Proyectos');
+	}
+
 
 	
 }
