@@ -291,6 +291,7 @@ class C_proyectos extends CI_controller
 		$data['estudiantes']=$this->m_proyectos->obtener_cantidad_estudiantes($evento);
 		$data['profesores']=$this->m_proyectos->obtener_cantidad_profesores($evento);
 		$data['dEstudiantes']=$this->m_proyectos->obtener_datos_estudiantes($evento);
+		$data['dProfesores']=$this->m_proyectos->obtener_datos_profesores($evento);
 		$this->load->vars($data);
 		$this->load->view('layout/header');
 		$this->load->view('proyectos/vD_Proyectos');
